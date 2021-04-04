@@ -1,3 +1,14 @@
 from django.contrib import admin
+from .models import Dish
 
-# Register your models here.
+class DishAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Dish, DishAdmin)
+
+
+
+
+
+
