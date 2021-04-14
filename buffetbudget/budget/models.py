@@ -36,13 +36,13 @@ class BudgetItem(models.Model):
     cost_total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, default=0)
 
     def __str__(self):
-            return self.dish
+        return self.dish.name
 
     class Meta: 
         verbose_name = u'BudgetItem'
         verbose_name_plural = u'BudgetItems'
 
-    def save_budget_item(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         self.qtd_total = self.dish.qnt_per_people * self.budget_header.people_qtd
         self.cost_distance_total = self.dish.cost_per_distance * self.budget_header.people_qtd
         self.cost_person_total = self.dish.cost_per_people * self.budget_header.event_distance
